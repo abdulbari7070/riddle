@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+
+
+	<!-- page section start -->
+	<section class="page-section">
+		<div class="container">
+			<h2 class="section-title mb-5">About <span>Me</span></h2>
+			<div class="row">
+				<div class="col-lg-6 text-justify">
+					<p>{{model.introduction}}</p>
+					<div class="row mt-5">
+						<div class="col-md-4">
+							<div class="milestone">
+								<h2>{{model.clients}}<span>Clients</span></h2>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="milestone">
+								<h2>{{model.clients}}<span>Projects</span></h2>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="milestone">
+								<h2>{{model.collabs}}<span>Collaborations</span></h2>
+							</div>
+						</div>
+					</div>
+					<figure class="mt-5">
+						<img src="{% static 'img/sign.png' %}" alt="">
+					</figure>
+				</div>
+				<div class="col-lg-5 offset-lg-1">
+					<figure class="pic-frame">
+						<img src="{{model.image.url}}" alt="">
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- page section end -->
+
+{% endblock body %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block body %}
+
+	<!-- portfolio section start -->
+	<section class="portfolio-section pt100">
+		<div class="container">
+			
+		</div>                       
+		<div class="container-fluid p-0">
+			<div class="row portfolios-area">
+             	<div class="col-lg-12 text-center">
+					<div class="portfolio-intro">
+						<h2 class="section-title mb-5">My <span>Works</span></h2>
+					    <ul class="portfolio-filter controls">
+							<li class="control" data-filter="all">All</li>
+							<li class="control" data-filter=".web">Web design</li>
+							<li class="control" data-filter=".digital">Digital design</li>
+							<li class="control" data-filter=".rened">3D Renedering</li>
+							<li class="control" data-filter=".brand">Brand Identity</li>
+						</ul>
+					</div>
+				</div>
+
+                {% for pfolio in object_list %}
+                    <div class="mix col-lg-4 col-md-6 {{pfolio.category}}">
+                            <a href="{{pfolio.image.url}}" class="portfolio-item set-bg " data-setbg="{{pfolio.image.url}}">
+                                <div class="pi-inner">
+                                    <h2>+ View Image</h2>
+                                </div>			
+                            </a>
+                            <div class="portfolio-meta">
+                                <h2>{{pfolio.title}}</h2>
+                                <p>{{pfolio.description}}</p>
+                            </div>
+                    </div>
+                    {% comment %} {% if pfolio.id == 1 %}
+                        <div class="second-item mix col-md-12 web">
+                            <a href="{{pfolio.image.url}}" class="portfolio-item set-bg " data-setbg="{{pfolio.image.url}}">
+                                <div class="pi-inner">
+                                    <h2>+ See Project</h2>
+                                </div>			
+                            </a>
+                            <div class="portfolio-meta">
+                                <h2>{{pfolio.title}}</h2>
+                                <p>{{pfolio.description}}</p>
+                            </div>
+                        </div>
+                    {% comment %} {% elif pfolio.id == 2%}
+                            <div class="second-item mix col-md-6 web">
+                            <a href="{{pfolio.image.url}}" class="portfolio-item set-bg " data-setbg="{{pfolio.image.url}}">
+                                <div class="pi-inner">
+                                    <h2>+ See Project</h2>
+                                </div>			
+                            </a>
+                            <div class="portfolio-meta">
+                                <h2>{{pfolio.title}}</h2>
+                                <p>{{pfolio.description}}</p>
+                            </div>
+                        </div> {% endcomment %}
+                    {% comment %} {% else %}
+                         <div class="second-item mix col-md-6 web">
+                            <a href="{{pfolio.image.url}}" class="portfolio-item set-bg " data-setbg="{{pfolio.image.url}}">
+                                <div class="pi-inner">
+                                    <h2>+ See Project</h2>
+                                </div>			
+                            </a>
+                            <div class="portfolio-meta">
+                                <h2>{{pfolio.title}}</h2>
+                                <p>{{pfolio.description}}</p>
+                            </div>
+                        </div>
+                    {% endif %} {% endcomment %}
+                {% endfor %}
+
+			
+			</div>
+		</div>
+	</section>
+	<!-- portfolio section end -->
+{% endblock body %}

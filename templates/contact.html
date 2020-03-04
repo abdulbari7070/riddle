@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block body %}
+
+{% load static %}
+
+	<!-- page section start -->
+	<section class="page-section">
+		<div class="container">
+				<h2 class="section-title mb-5 text-center">So Let's <span>Talk</span></h2>
+			<div class="row">
+				<div class="col-lg-6 offset-lg-3 contect-tect">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet pharetra nisl. Vestibulum sollicitudin leo non purus vestibulum placerat. Curabitur ac erat sollicitudin, blandit quam vitae.</p>
+				</div>
+			</div>
+			{% if message %}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>{{ message }}</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			{% endif %}
+			<form action="" method="POST" class="contact-form">
+				<div class="row">
+					{% csrf_token %}
+					<div class="col-md-6">
+						{{ form.name }}
+					</div>
+					<div class="col-md-6">
+						{{ form.email }}
+					</div>
+					<div class="col-md-12">
+						{{ form.subject }}
+					</div>
+					<div class="col-md-12">
+						{{ form.message }}
+					</div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="site-btn">Send</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- page section end -->
+
+	{% endblock body %}
